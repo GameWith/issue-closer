@@ -1,0 +1,17 @@
+{
+  "extends": "standard",
+  "rules": {
+    "semi": ["error", "always"],
+    "semi-spacing": ["error", {
+      "after": false,
+      "before": false
+    }],
+    "semi-style": ["error", "last"],
+    "no-extra-semi": "error",
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
+  }
+}
