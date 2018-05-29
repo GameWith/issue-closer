@@ -58,7 +58,6 @@ prog
   .option('--configPath <script>', 'config path', prog.STRING)
   .action(async (args, options) => {
     const tasker = await loadTasker(options);
-    console.log(options);
     await tasker.run(options.task);
   })
   .command('init', 'Create config file')
