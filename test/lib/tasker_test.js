@@ -36,7 +36,7 @@ describe('Tasker', () => {
       it('should return error', () => {
         expect(() => new Tasker({dummy: 'x'}, {
           owner: 'xxx',
-          repository: "xxx"
+          repository: 'xxx'
         })).to.throw();
       });
     });

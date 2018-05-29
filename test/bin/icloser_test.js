@@ -7,7 +7,7 @@ const fs = require('fs');
 const util = require('util');
 const path = require('path');
 const chai = require('chai');
-const chaiAsPromised = require("chai-as-promised");
+const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const expect = require('chai').expect;
 

@@ -16,5 +16,5 @@ module.exports = (td) => {
         closer._update = async (issues) => Promise.resolve(issues);
       }
     }
-  }
+  };
 };
