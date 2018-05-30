@@ -67,7 +67,7 @@ prog
     const srcPath = path.join(path.join(__dirname, '/../templates/default.js'));
     const src = await util.promisify(fs.readFile)(srcPath);
     await util.promisify(fs.writeFile)(dstPath, src, {flag: 'wx'});
-    console.info(`create config file: ${dstPath}`);
+    console.info(`created config file: ${dstPath}`);
   });
 
 prog.parse(process.argv);
