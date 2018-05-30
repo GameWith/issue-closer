@@ -15,7 +15,8 @@ $ npm i issue-closer --save
 
 ### Client
 
-see [TaskOption](#TaskOption)
+See [TaskOption](#taskoption)
+
 ```js
 const Closer = require('issue-closer');
 
@@ -84,6 +85,7 @@ closer.run('sample').then((closedIssues) => {
 
 /path/to/.icloser.js
 
+See [TaskOption](#taskoption)
 ```js
 'use strict';
 
@@ -120,7 +122,7 @@ module.exports = {
   config: {
     //Repository owner
     owner: 'xxx',
-    //Target respository
+    //Target repository
     repository: 'xxx'
   },
   tasks: {
@@ -131,7 +133,7 @@ module.exports = {
       }
     },
     sample: {
-      filter: (issue) => return issue.number === 2,
+      filter: (issue) => issue.number === 2
     }
   }
 };
