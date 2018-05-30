@@ -11,7 +11,7 @@
 ### Install
 
 ```
-$ npm i issue-closer --save
+$ npm i @gamewith/issue-closer --save
 ```
 
 ### Client
@@ -19,7 +19,7 @@ $ npm i issue-closer --save
 See [TaskOption](#taskoption)
 
 ```js
-const Closer = require('issue-closer');
+const Closer = require('@gamewith/issue-closer');
 
 // GitHub TOKEN
 // @see https://github.com/settings/tokens
