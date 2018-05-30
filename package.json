@@ -44,5 +44,8 @@
   "bugs": {
     "url": "https://github.com/GameWith/issue-closer/issues"
   },
-  "homepage": "https://github.com/GameWith/issue-closer#readme"
+  "homepage": "https://github.com/GameWith/issue-closer#readme",
+  "engines": {
+    "node": ">=8"
+  }
 }
