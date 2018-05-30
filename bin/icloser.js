@@ -57,8 +57,15 @@ prog
   .option('--task <task>', 'execute task from task name', prog.STRING)
   .option('--configPath <script>', 'config path', prog.STRING)
   .action(async (args, options) => {
-    const tasker = await loadTasker(options);
-    await tasker.run(options.task);
+    try {
+      console.info('Start - Close GitHub issues');
+      const tasker = await loadTasker(options);
+      const closedIssues = await tasker.run(options.task);
+      console.info(`Closed Issues count: ${closedIssues.length}`);
+      console.info('Finish - Closed GitHub issues');
+    } catch(err) {
+      console.error(err);
+    }
   })
   .command('init', 'Create config file')
   .option('--path <path>', 'Destination path')
