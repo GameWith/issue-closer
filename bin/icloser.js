@@ -70,11 +70,15 @@ prog
   .command('init', 'Create config file')
   .option('--path <path>', 'Destination path')
   .action(async (args, options) => {
-    const dstPath = path.join(options.path || process.env.PWD, './.icloser.js');
-    const srcPath = path.join(path.join(__dirname, '/../templates/default.js'));
-    const src = await util.promisify(fs.readFile)(srcPath);
-    await util.promisify(fs.writeFile)(dstPath, src, {flag: 'wx'});
-    console.info(`created config file: ${dstPath}`);
+    try {
+      const dstPath = path.join(options.path || process.env.PWD, './.icloser.js');
+      const srcPath = path.join(path.join(__dirname, '/../templates/default.js'));
+      const src = await util.promisify(fs.readFile)(srcPath);
+      await util.promisify(fs.writeFile)(dstPath, src, {flag: 'wx'});
+      console.info(`created config file: ${dstPath}`);
+    } catch (err) {
+      console.error(err);
+    }
   });
 
 prog.parse(process.argv);
