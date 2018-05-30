@@ -21,14 +21,14 @@ See [TaskOption](#taskoption)
 ```js
 const Closer = require('issue-closer');
 
-//GitHub TOKEN
-//@see https://github.com/settings/tokens
+// GitHub TOKEN
+// @see https://github.com/settings/tokens
 const token = 'xxx';
 
 const closer = new Closer(token, {
-  //Repository owner
+  // Repository owner
   owner: 'xxx',
-  //Target repository
+  // Target repository
   repository: 'xxx'
 });
 
@@ -53,12 +53,14 @@ closer.run('sample').then((closedIssues) => {
 
 1. Create config file
 
+   Default is to close all issues.
+   
    ```
    $ node_modules/.bin/icloser init
    // created ./.icloser.js
    ```
    
-   Change destination path
+   Change destination path.
    
    ```
    $ node_modules/.bin/icloser init --path=/path/to
@@ -70,7 +72,7 @@ closer.run('sample').then((closedIssues) => {
    $ node_modules/.bin/icloser
    ```
 
-   Specifiy a task.
+   Specify a task.
 
    ```
    $ node_modules/.bin/icloser --task=sample
@@ -91,13 +93,13 @@ See [TaskOption](#taskoption)
 'use strict';
 
 module.exports = {
-  //GitHub TOKEN
-  //@see https://github.com/settings/tokens
+  // GitHub TOKEN
+  // @see https://github.com/settings/tokens
   token: 'xxx',
   config: {
-    //Repository owner
+    // Repository owner
     owner: 'xxx',
-    //Target respository
+    // Target repository
     repository: 'xxx'
   },
   tasks: {
@@ -117,13 +119,13 @@ Overwrite default
 'use strict';
 
 module.exports = {
-  //GitHub TOKEN
-  //@see https://github.com/settings/tokens
+  // GitHub TOKEN
+  // @see https://github.com/settings/tokens
   token: 'xxx',
   config: {
-    //Repository owner
+    // Repository owner
     owner: 'xxx',
-    //Target repository
+    // Target repository
     repository: 'xxx'
   },
   tasks: {
@@ -144,23 +146,25 @@ module.exports = {
 
 ```js
 {
-  //Filter issue with logic.
-  //When undefined, it does not filter issue.
-  //@type function(issue): bool or undefined
-  //@see https://developer.github.com/v3/issues/#list-issues-for-a-repository
+  // Filter issue with logic.
+  // When undefined, it does not filter issue.
+  // @type function(issue): bool or undefined
+  // @see https://developer.github.com/v3/issues/#list-issues-for-a-repository
   filter: (issue) => issue.number === 1,
-  //Filter by query of GitHub API.
-  //When undefined, it get all issues.
-  //@type Object or undefined
-  //@see https://developer.github.com/v3/issues/#list-issues-for-a-repository
+
+  // Filter by query of GitHub API.
+  // When undefined, it get all issues.
+  // @type Object or undefined
+  // @see https://developer.github.com/v3/issues/#list-issues-for-a-repository
   query: {
     labels: 'done'
   },
-  //Sleep every 20 issues.
-  //When close a large number of issues, it use to avoid Limit of GitHubAPI.
-  //When undefined it does not sleep.
-  //@type Number or undefined
-  //@see https://developer.github.com/v3/#rate-limiting
+
+  // Sleep every 20 issues.
+  // When close a large number of issues, it use to avoid Limit of GitHubAPI.
+  // When undefined it does not sleep.
+  // @type Number or undefined
+  // @see https://developer.github.com/v3/#rate-limiting
   sleep: 10 //msec
 }
 ```
