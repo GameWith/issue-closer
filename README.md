@@ -1,9 +1,10 @@
 # issue-closer
 
-> Close GitHub Issue client for Node.js
+> Close GitHub Issues client for Node.js
 
-
-[![CircleCI](https://circleci.com/gh/GameWith/issue-closer/tree/master.svg?style=svg)](https://circleci.com/gh/GameWith/issue-closer/tree/master)
+[![CircleCI](https://circleci.com/gh/GameWith/issue-closer.svg?style=svg&circle-token=b21021b2a1e74a5292bd7cebbe22aa5b0bf8198e)](https://circleci.com/gh/GameWith/issue-closer)
+![Support Node.js version](https://img.shields.io/badge/Node.js%20-8.x-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Usage
 
