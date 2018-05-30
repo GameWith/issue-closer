@@ -1,0 +1,7 @@
+# npm
+node_modules
+# test
+test/fixtures
+# coverage
+coverage
+.nyc_output

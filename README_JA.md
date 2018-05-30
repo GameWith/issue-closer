@@ -6,33 +6,33 @@
 ![Support Node.js version](https://img.shields.io/badge/Node.js%20-8.x-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Usage
+## 使用方法
 
-### Install
+### インストール
 
 ```
 $ npm i issue-closer --save
 ```
 
-### Client
+### クライアント
 
-See [TaskOption](#taskoption)
+タスクオプションは [こちら](#タスクオプション) を参照してください。
 
 ```js
 const Closer = require('issue-closer');
 
-// GitHub TOKEN
+// GitHub のトークンを記述
 // @see https://github.com/settings/tokens
 const token = 'xxx';
 
 const closer = new Closer(token, {
-  // Repository owner
+  // リポジトリのオーナーを指定
   owner: 'xxx',
-  // Target repository
+  // 実行対象のリポジトリを指定
   repository: 'xxx'
 });
 
-// Add task
+// タスクの追加
 closer.add('sample', {
   filter: (issue) => issue.number === 1,
   query: {
@@ -41,7 +41,7 @@ closer.add('sample', {
   sleep: 100
 });
 
-// Run close issues
+// 実行
 closer.run('sample').then((closedIssues) => {
   console.info(closedIssues);
 }).catch((err) => {
@@ -49,59 +49,61 @@ closer.run('sample').then((closedIssues) => {
 });
 ```
 
-### CLI
+### コマンドライン
 
-1. Create config file
-   
+1. コンフィグファイルの作成
+
    ```
    $ node_modules/.bin/icloser init
    // created ./.icloser.js
    ```
    
-   Change destination path.
+   コンフィグファイルのパス変更は以下のコマンドで行えます。
    
    ```
    $ node_modules/.bin/icloser init --path=/path/to
    // created /path/to/.icloser.js
    ```
-2. Run close issues
+2. 実行
 
-   Default is to close all issues.
+   デフォルトタスクは全ての `Issue` を閉じます。
 
    ```
    $ node_modules/.bin/icloser
    ```
 
-   Specify a task.
+   タスクの指定
 
    ```
    $ node_modules/.bin/icloser --task=sample
    ```
 
-   Change the reference destination of config file.
+   コンフィグファイルの参照先を変更
 
    ```
    $ node_modules/.bin/icloser --configPath=/path/to/.icloser.js
    ```
 
-#### Config
+#### コンフィグ
 
 /path/to/.icloser.js
 
-See [TaskOption](#taskoption)
+タスクオプションは [こちら](#タスクオプション) を参照してください。
+
 ```js
 'use strict';
 
 module.exports = {
-  // GitHub TOKEN
+  // GitHub のトークンを記述
   // @see https://github.com/settings/tokens
   token: 'xxx',
   config: {
-    // Repository owner
+    // リポジトリのオーナーを指定
     owner: 'xxx',
-    // Target repository
+    // 実行対象のリポジトリを指定
     repository: 'xxx'
   },
+  // タスクの定義
   tasks: {
     sample: {
       filter: (issue) => issue.number === 1,
@@ -113,21 +115,22 @@ module.exports = {
 };
 ```
 
-Overwrite default
+デフォルトタスクを上書きする場合
 
 ```js
 'use strict';
 
 module.exports = {
-  // GitHub TOKEN
+  // GitHub のトークンを記述
   // @see https://github.com/settings/tokens
   token: 'xxx',
   config: {
-    // Repository owner
+    // リポジトリのオーナーを指定
     owner: 'xxx',
-    // Target repository
+    // 実行対象のリポジトリを指定
     repository: 'xxx'
   },
+  // タスクの定義
   tasks: {
     default: {
       filter: (issue) => issue.number === 1,
@@ -142,30 +145,30 @@ module.exports = {
 };
 ```
 
-#### TaskOption
+#### タスクオプション
 
 ```js
 {
-  // Filter issue with logic.
-  // When undefined, it does not filter issue.
+  // ロジックで Issue のフィルターを定義できます。
+  // undefined の場合は、フィルターを行いません。
   // @type function(issue): bool or undefined
   // @see https://developer.github.com/v3/issues/#list-issues-for-a-repository
   filter: (issue) => issue.number === 1,
-
-  // Filter by query of GitHub API.
-  // When undefined, it get all issues.
+  
+  // GitHub API の Query で Issue をフィルターします。
+  // undefined の場合は、全ての Issue を取得します。
   // @type Object or undefined
   // @see https://developer.github.com/v3/issues/#list-issues-for-a-repository
   query: {
     labels: 'done'
   },
-
-  // Sleep every 20 issues.
-  // When close a large number of issues, it use to avoid Limit of GitHubAPI.
-  // When undefined it does not sleep.
+  
+  // 20件毎に sleep を実行します。
+  // 大量に Issue を閉じると GitHub API のリミット制限対象になるのを避けるために定義します。
+  // undefined の場合は sleep しません。
   // @type Number or undefined
   // @see https://developer.github.com/v3/#rate-limiting
-  sleep: 10 //msec
+  sleep: 10 // msec
 }
 ```
 
