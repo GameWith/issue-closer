@@ -16,7 +16,7 @@ $ npm i issue-closer --save
 
 ### クライアント
 
-タスクオプションは [TaskOption](#taskoption) を参照してください。
+タスクオプションは [こちら](#タスクオプション) を参照してください。
 
 ```js
 const Closer = require('issue-closer');
@@ -88,7 +88,8 @@ closer.run('sample').then((closedIssues) => {
 
 /path/to/.icloser.js
 
-タスクオプションは [TaskOption](#taskoption) を参照してください。
+タスクオプションは [こちら](#タスクオプション) を参照してください。
+
 ```js
 'use strict';
 
