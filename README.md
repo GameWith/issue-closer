@@ -52,8 +52,6 @@ closer.run('sample').then((closedIssues) => {
 ### CLI
 
 1. Create config file
-
-   Default is to close all issues.
    
    ```
    $ node_modules/.bin/icloser init
@@ -67,6 +65,8 @@ closer.run('sample').then((closedIssues) => {
    // created /path/to/.icloser.js
    ```
 2. Run close issues
+
+   Default is to close all issues.
 
    ```
    $ node_modules/.bin/icloser
