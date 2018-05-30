@@ -2,6 +2,7 @@
 
 /* eslint-env mocha */
 /* eslint-disable max-nested-callbacks */
+/* eslint-disable no-unused-expressions */
 
 const fs = require('fs');
 const util = require('util');
