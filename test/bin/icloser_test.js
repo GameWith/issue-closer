@@ -27,7 +27,7 @@ describe('icloser', () => {
         const result = await command.exec(`node ./bin/icloser.js init --path=${DEST_PATH}`);
         expect(result.error).to.eql(null);
       });
-      it('shoud be error', async () => {
+      it('should be error', async () => {
         const command = new Command();
         const result = await command.exec(`node ./bin/icloser.js init --path=${DEST_PATH}www/wwww/wwww/www`);
         expect(result.error).to.not.eql(null);
