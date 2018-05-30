@@ -8,9 +8,7 @@ module.exports = {
   },
   tasks: {
     sample: {
-      filter: (issue) => {
-        console.log(issue);
-      },
+      filter: (issue) => issue.title === 'sample',
       query: {
         labels: 'done'
       }
