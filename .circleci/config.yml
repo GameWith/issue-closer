@@ -25,3 +25,26 @@ jobs:
       - run:
           name: test
           command: npm run test
+  publish:
+    <<: *container_config
+    steps:
+      - checkout
+      - run:
+          name: login
+          command: echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - run:
+          name: publish
+          command: npm run publish
+
+workflows:
+  version: 2
+  build_and_publish:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
