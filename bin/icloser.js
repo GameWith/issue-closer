@@ -63,7 +63,7 @@ prog
       const closedIssues = await tasker.run(options.task);
       console.info(`Closed Issues count: ${closedIssues.length}`);
       console.info('Finish - Closed GitHub issues');
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
   })
