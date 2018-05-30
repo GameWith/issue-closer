@@ -1,7 +1,7 @@
 {
-  "name": "issue-closer",
+  "name": "@gamewith/issue-closer",
   "version": "1.0.0",
-  "description": "close github issues",
+  "description": "Close github issues",
   "main": "index.js",
   "bin": {
     "icloser": "./bin/icloser.js"
