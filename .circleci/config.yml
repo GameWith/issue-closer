@@ -48,3 +48,4 @@ workflows:
             branches:
               only:
                 - master
+                - feature/publish_npm_with_circle_ci
