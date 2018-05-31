@@ -31,7 +31,7 @@ jobs:
       - checkout
       - run:
           name: login
-          command: echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
       - run:
           name: publish
           command: npm run publish
